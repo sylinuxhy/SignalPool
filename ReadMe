@@ -1,0 +1,19 @@
+brandnew文件下的各文件功能：
+1.algorithm文件中的py脚本均为不通的策略
+2.datastorage文件中的py脚本功能为将订阅的Kafka消息按主题分别存到MongoDB数据库中
+3.main文件中的py脚本为整个程序的主程序，主要为订阅主题，并按主题运行策略池中的策略
+4.personchoose文件中的py脚本主要用来控制策略触发时候的用户选择
+5.socketfile文件中的py脚本主要用来订阅socket数据，按主题发布到Kafka消息系统中
+6.tools文件中的indicator.py脚本实现了策略中需要的指标计算函数、此外updatedata.py脚本实现了跟新分钟K线数据的功能
+
+运行此程序顺序：
+1.启动socketfile中的mysocket.py脚本，用来订阅58coin的k线数据（ticker数据），并按订阅主题发布到Kafka消息系统中
+2.启动datastorage中的datastorage.py脚本，按主题订阅Kafka数据，按主题存储到MongoDB数据库中
+3.启动main中的mainscript.py脚本，此程序将按不同的主题同步运行各自策略池中的策略
+
+
+
+
+
+                                                                                Wrote by ZuBing Fang
+                                                                                Nov,13,2019
